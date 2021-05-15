@@ -1,4 +1,4 @@
-package com.committee.system.Model;
+package com.committee.system.model;
 
 import com.sun.istack.NotNull;
 import lombok.*;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "user_login_details")
 public class UserLoginDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @NotNull
     private String username;

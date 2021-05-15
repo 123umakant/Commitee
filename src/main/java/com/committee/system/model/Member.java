@@ -1,4 +1,4 @@
-package com.committee.system.Model;
+package com.committee.system.model;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "committee_member")
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @NotNull
     private String name;
@@ -27,10 +27,7 @@ public class Member {
     @NotNull
     private String address;
     @NotNull
-    private int phone_number;
+    private long phoneNumber;
 
-    @Lob
-    private byte[] attachment;
-
-
+    String attachmentUrl;
 }

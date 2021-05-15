@@ -1,4 +1,4 @@
-package com.committee.system.Model;
+package com.committee.system.model;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -16,16 +16,15 @@ import javax.persistence.*;
 @Table(name = "committee_token_details")
 public class TokenDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @OneToOne
     private UserLoginDetails loginDetails;
     @NotNull
-//    @Column(name = "token number")
-    private int token_number;
+    private int tokenNumber;
     @NotNull
 //    @Column(name = "token amount")
-    private int token_amount;
+    private int tokenAamount;
 
 
 }
