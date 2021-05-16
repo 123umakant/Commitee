@@ -16,7 +16,7 @@ public class StorageController {
     private AwsService awsService;
 
     @PostMapping("/upload")
-    public ResponseEntity uploadFile(MultipartFile file)
+    public ResponseEntity uploadFile(MultipartFile  file)
     {
         return new ResponseEntity(awsService.uploadFile(file), HttpStatus.OK);
     }

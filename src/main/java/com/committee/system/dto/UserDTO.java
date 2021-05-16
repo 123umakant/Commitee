@@ -20,6 +20,7 @@ public class UserDTO {
     private String name;
     private String address;
     private long phoneNumber;
+    private String password;
     private MultipartFile file;
 
 }

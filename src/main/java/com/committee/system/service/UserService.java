@@ -6,6 +6,7 @@ import com.committee.system.model.Member;
 import com.committee.system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,12 +30,11 @@ public class UserService {
         awsService.uploadFile(userDTO.getFile());
 
         String attchmentUrl = s3Client.getUrl(bucketName,userDTO.getFile().getOriginalFilename()).toString();
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        Member member = new Member();
-        member.setName(userDTO.getName());
-        member.setAddress(userDTO.getAddress());
-        member.setPhoneNumber(userDTO.getPhoneNumber());
-        member.setAttachmentUrl(attchmentUrl);
+        Member member = new Member(userDTO.getName(),userDTO.getAddress(),userDTO.getPhoneNumber(),
+                passwordEncoder.encode(userDTO.getPassword()),attchmentUrl);
+
         userRepository.save(member);
     }
 }
