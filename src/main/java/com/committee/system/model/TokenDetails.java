@@ -23,8 +23,7 @@ public class TokenDetails {
     @NotNull
     private int tokenNumber;
     @NotNull
-//    @Column(name = "token amount")
-    private int tokenAamount;
+    private int tokenAmount;
 
 
 }

@@ -20,14 +20,24 @@ public class Member {
     private long id;
     @NotNull
     private String name;
-    @OneToOne
-    private TokenDetails tokenDetails;
+    private int tokenNumber;
     @OneToOne
     private UserLoginDetails loginDetails;
     @NotNull
     private String address;
     @NotNull
     private long phoneNumber;
+    @NotNull
+    private String password;
 
     String attachmentUrl;
+
+    public Member(String name, String address, long phoneNumber, String password, String attachmentUrl)
+    {
+        this.name = name;
+        this.address = address;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.attachmentUrl = attachmentUrl;
+    }
 }
